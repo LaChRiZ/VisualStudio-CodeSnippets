@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Constructor inside a region</Title>
+			<Shortcut>#ctor</Shortcut>
+			<Description>Code snippet for constructor with surrounding region.</Description>
+			<Author>LaChRiZ</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="false">
+					<ID>classname</ID>
+					<ToolTip>Class name</ToolTip>
+					<Function>ClassName()</Function>
+					<Default>ClassNamePlaceholder</Default>
+				</Literal>
+				<Literal Editable="false">
+				  <ID>name</ID>
+				  <ToolTip>Region name</ToolTip>
+				  <Default>Constructors</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+    <![CDATA[#region $name$
+    
+        public $classname$ ()
+	{
+		$end$
+	}
+  
+  #endregion // $name$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Property implementation that raises PropertyChanged event</Title>
+			<Shortcut>property</Shortcut>
+			<Description>Code snippet for a property in a viewmodel.</Description>
+			<Author>LaChRiZ</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="true">
+				  <ID>type</ID>
+				  <ToolTip>Object Type</ToolTip>
+				  <Default>object</Default>
+				</Literal>
+				<Literal Editable="true">
+				  <ID>name</ID>
+				  <ToolTip>Property name</ToolTip>
+				  <Default>NewProperty</Default>
+				</Literal>
+				<Literal Editable="true">
+				  <ID>fieldname</ID>
+				  <ToolTip>Field name</ToolTip>
+				  <Default>_newProperty</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+    <![CDATA[private $type$ $fieldname$;
+
+        public $type$ $name$
+        {
+            get { return $fieldname$; }
+            set
+            {
+                $fieldname$ = value;
+                OnPropertyChanged("$name$");
+            }
+        }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

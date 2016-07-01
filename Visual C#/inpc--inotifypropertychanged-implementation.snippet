@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>INotifyPropertyChanged interface implementation</Title>
+			<Shortcut>inpc</Shortcut>
+			<Description>Code snippet for INotifyPropertyChange interface implementation.</Description>
+			<Author>LaChRiZ</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[#region INotifyPropertyChanged Members
+        
+		/// <summary>
+		/// Raised, when a property value changed.
+		/// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Raises <see cref="PropertyChanged"/>-Event.
+        /// </summary>
+        /// <param name="propertyName">Name of the property that has updated</param>
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion // INotifyPropertyChanged Members]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
