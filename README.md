@@ -17,7 +17,105 @@
 * `property` - Property with hidden field that raises PropertyChanged event.
 
 * `sf` - String.Format("") snippet.
-  
+
+* `tostr` - Implements ToString() method.
+
+* `tostrf` - Implements ToString() method by use of String.Format();
+
+---
+
+## Implementations
+
+### Visual C&#35; implementations
+
+* `cr`  
+```c#
+    Console.Readline();
+```
+
+* `#ctor`  
+```c#
+    #region Constructors
+
+    public Class ()
+    {
+    }
+
+    #endregion // Constructors
+```
+
+* `inpc`  
+```c#
+    #region INotifyPropertyChanged Members
+        
+    /// <summary>
+    /// Raised, when a property value changed.
+    /// </summary>
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    /// <summary>
+    /// Raises <see cref="PropertyChanged"/>-Event.
+    /// </summary>
+    /// <param name="propertyName">Name of the property that has updated</param>
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    #endregion // INotifyPropertyChanged Members
+```
+
+* `#region`  
+```c#
+    #region YourRegion
+		
+	#endregion // YourRegion
+```
+
+* `property`  
+```c#
+    private object _value;
+
+        public object Value
+        {
+            get { return _value; }
+            set
+            {
+                _value = value;
+                OnPropertyChanged("Value);
+            }
+        }
+```
+
+* `sf`  
+```c#
+    string.Format("foo")
+```
+
+* `tostr`  
+```c#
+    /// <summary>
+    /// Returns your Object as string.
+    /// </summary>
+    /// <returns>String representation of your Object.</returns>
+    public override string ToString()
+    {
+        return base.ToString();
+    }
+```
+
+* `tostrf`  
+```c#
+    /// <summary>
+    /// Returns your Object as string.
+    /// </summary>
+    /// <returns>String representation of your Object.</returns>
+    public override string ToString()
+    {
+        return string.Format("{0}", this.GetType());
+    }
+```
+
 
 ---
 
